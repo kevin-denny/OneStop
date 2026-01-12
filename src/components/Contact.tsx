@@ -1,27 +1,49 @@
 import { useState, FormEvent } from 'react';
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    contact: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitMessage('');
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbx7R5Q1WCmDqYn9fMbYN4VMR6jZCuDrg-nzJ6UcqCOeJkzeb-ZdaU7AgEb9e0G831AE/exec",
+        {
+          method: "POST",
+          body: JSON.stringify(formData),
+        }
+      );
 
-    setSubmitMessage('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+      const text = await response.text();
 
-    setTimeout(() => setSubmitMessage(''), 5000);
+      if (text === "success") {
+        toast.success("Form submitted successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          contact: "",
+          message: "",
+        });
+      } else {
+        toast.error("Submission failed: " + text);
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -53,8 +75,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Email</h4>
-                    <a href="mailto:contact@onestop.com" className="text-gray-700 hover:text-brand-orange transition-colors">
-                      contact@onestop.com
+                    <a href="mailto:onestopprojectsmgt@gmail.com" className="text-gray-700 hover:text-brand-orange transition-colors">
+                      onestopprojectsmgt@gmail.com
                     </a>
                   </div>
                 </div>
@@ -67,8 +89,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Phone</h4>
-                    <a href="tel:+1234567890" className="text-gray-700 hover:text-brand-orange transition-colors">
-                      +1 (234) 567-890
+                    <a href="tel:+94766191941" className="text-gray-700 hover:text-brand-orange transition-colors">
+                      +94 76 619 1941
                     </a>
                   </div>
                 </div>
@@ -78,8 +100,8 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-4">Business Hours</h3>
               <p className="text-gray-700">
-                Monday - Friday: 9:00 AM - 6:00 PM<br />
-                Saturday - Sunday: Closed
+                Monday - Saturday: 9:00 AM - 6:00 PM<br />
+                Sunday: Closed
               </p>
             </div>
           </div>
@@ -119,6 +141,21 @@ const Contact = () => {
               </div>
 
               <div>
+                <label htmlFor="contact" className="block text-sm font-medium text-gray-700 mb-2">
+                  Contact Number
+                </label>
+                <input
+                  type="contact"
+                  id="contact"
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all"
+                  placeholder="contact number"
+                />
+              </div>
+
+              <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Message
                 </label>
@@ -141,12 +178,6 @@ const Contact = () => {
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
-
-              {submitMessage && (
-                <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
-                  {submitMessage}
-                </div>
-              )}
             </form>
           </div>
         </div>
