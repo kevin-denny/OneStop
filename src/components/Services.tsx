@@ -1,6 +1,15 @@
 const Services = () => {
   const services = [
     {
+      title: 'Business Process Management',
+      description: 'Optimize your operations with intelligent business process management solutions. We analyze, design, and implement efficient workflows that reduce costs, improve productivity, and ensure consistent quality across your organization.',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
+    },
+    {
       title: 'Website Building',
       description: 'Transform your online presence with custom-designed, responsive websites that engage visitors and drive conversions. We create SEO-optimized, fast-loading websites that reflect your brand identity and deliver exceptional user experiences across all devices.',
       icon: (
@@ -10,20 +19,11 @@ const Services = () => {
       ),
     },
     {
-      title: 'Web App Development',
-      description: 'Build powerful, scalable web applications tailored to your unique business requirements. From concept to deployment, we develop robust, feature-rich applications using modern technologies that enhance productivity and streamline operations.',
+      title: 'System Development',
+      description: 'Build powerful, scalable system applications tailored to your unique business requirements. From concept to deployment, we develop robust, feature-rich applications using modern technologies that enhance productivity and streamline operations.',
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-      ),
-    },
-    {
-      title: 'Business Process Management',
-      description: 'Optimize your operations with intelligent business process management solutions. We analyze, design, and implement efficient workflows that reduce costs, improve productivity, and ensure consistent quality across your organization.',
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       ),
     },
