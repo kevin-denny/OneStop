@@ -1,3 +1,5 @@
+import { TypeAnimation } from 'react-type-animation';
+
 const Hero = () => {
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
@@ -26,7 +28,21 @@ const Hero = () => {
 
           <h1 className="heading-1 mb-6 leading-tight">
             Your One Stop<br />
-            <span className="text-brand-orange">Solution</span>
+            <span className="text-brand-orange">
+              <TypeAnimation
+                sequence={[
+                  'Solution',
+                  2000,
+                  'Partner',
+                  2000,
+                  'Choice',
+                  2000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            </span>
           </h1>
 
           <p className="text-xl md:text-2xl mb-10 text-gray-300 leading-relaxed max-w-2xl">
