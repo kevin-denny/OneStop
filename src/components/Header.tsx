@@ -23,15 +23,15 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen
-          ? "bg-brand-white border-b border-gray-200 shadow-sm"
-          : "bg-transparent"
+        ? "bg-brand-white border-b border-gray-200 shadow-sm"
+        : "bg-transparent"
         }`}
     >
       <div className="container-custom py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 text-2xl font-bold">
             <img
-              src="/logo.jpg"
+              src="/logo.png"
               alt="One Stop Logo"
               className="w-12 h-12 object-contain rounded-lg"
             />
@@ -43,8 +43,8 @@ const Header = () => {
                 key={link.label}
                 href={link.href}
                 className={`font-medium transition-colors ${isScrolled || isMobileMenuOpen
-                    ? "text-gray-700 hover:text-brand-orange"
-                    : "text-gray-200 hover:text-brand-white"
+                  ? "text-gray-700 hover:text-brand-orange"
+                  : "text-gray-200 hover:text-brand-white"
                   }`}
               >
                 {link.label}
@@ -98,8 +98,8 @@ const Header = () => {
                 key={link.label}
                 href={link.href}
                 className={`block font-medium py-2 transition-colors ${isScrolled || isMobileMenuOpen
-                    ? "text-gray-700 hover:text-brand-orange"
-                    : "text-gray-200 hover:text-brand-white"
+                  ? "text-gray-700 hover:text-brand-orange"
+                  : "text-gray-200 hover:text-brand-white"
                   }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >

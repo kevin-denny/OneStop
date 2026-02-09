@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img
-                src="/logo.jpg"
+                src="/logo.png"
                 alt="One Stop Logo"
                 className="w-12 h-12 object-contain rounded-lg"
               />
