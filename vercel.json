@@ -8,7 +8,7 @@
           "value": "onestopprojects.com"
         }
       ],
-      "destination": "https://www.onestopprojects.com/:path*",
+      "destination": "https://onestopprojects.com/:path*",
       "permanent": true
     }
   ],
@@ -18,7 +18,7 @@
       "headers": [
         {
           "key": "Link",
-          "value": "<https://www.onestopprojects.com/>; rel=\"canonical\""
+          "value": "<https://onestopprojects.com/>; rel=\"canonical\""
         },
         {
           "key": "X-Content-Type-Options",
